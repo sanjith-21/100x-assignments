@@ -15,7 +15,50 @@
 
   Once you've implemented the logic, test your code by running
 */
+// const math=require('mathjs');
+class Calculator {
+    constructor(){
+      this.result=0;
+    }
+    add(num){
+      this.result=this.result+num;
+    } 
+    subtract(num){
+      this.result=this.result-num;
+    }
+    multiply(num){
+      this.result=this.result*num;
+    }
+    divide(num){
+      if(num===0){
+        throw new Error("Dividend cant be 0");
+      }
+       
+        this.result=this.result/num;
+        // console.log(this.result);
+      
+    }
+    clear(){
+      this.result=0;
+    }
+    getResult(){
+      return this.result;
+    }
+    calculate(exp){
+        exp=exp.replace(/\s+/g,"");
+        
+        this.result=eval(exp);
 
-class Calculator {}
+        if(this.result === Infinity){
+          throw new Error('Invalid expression');
+        }
+        return this.result; 
+
+
+
+
+    }
+
+}
 
 module.exports = Calculator;
